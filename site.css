@@ -430,3 +430,22 @@ details.more summary:hover{background:var(--cream);color:var(--ground)}
 .hero-icon:hover .h-circle{animation:hBounce .6s ease}
 @keyframes hBounce{40%{transform:translateY(-22%)}}
 @media (max-width:760px){.hero-split{grid-template-columns:1fr}.hero-icon{order:-1;width:120px;margin-bottom:8px}}
+
+/* ===== v7: entry splash (quick), no hero icon ===== */
+.intro{position:fixed;inset:0;z-index:100;background:var(--ground);display:grid;place-items:center;animation:introOut .45s ease 1.45s forwards}
+.intro-in{display:grid;justify-items:center;gap:20px;color:var(--cream)}
+.intro svg.im{width:clamp(96px,18vw,140px);height:auto;overflow:visible}
+.i-beam{transform-box:fill-box;transform-origin:bottom;animation:hRise .55s cubic-bezier(.2,.8,.2,1) .05s both}
+.i-circle{transform-box:fill-box;transform-origin:center;animation:hRoll .6s cubic-bezier(.2,.8,.2,1) .25s both}
+.i-half{transform-box:fill-box;transform-origin:left bottom;animation:hDrop .55s cubic-bezier(.3,1.35,.5,1) .5s both}
+.intro .iw{width:clamp(90px,14vw,120px);opacity:0;animation:iwIn .4s ease .85s forwards;direction:ltr}
+.intro .iw svg{width:100%;height:auto;display:block}
+@keyframes iwIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+@keyframes hRise{from{transform:scaleY(0)}to{transform:none}}
+@keyframes hRoll{from{transform:translateX(-140%) rotate(-220deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes hDrop{from{transform:translateY(-70%) rotate(-22deg);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.intro{display:none}}
+/* corner logo animates right after the splash */
+.l-beam{animation-delay:1.55s}.l-circle{animation-delay:1.65s}.l-half{animation-delay:1.8s}.logo-word{animation-delay:1.9s}
+.no-intro .l-beam{animation-delay:.1s}.no-intro .l-circle{animation-delay:.2s}.no-intro .l-half{animation-delay:.35s}.no-intro .logo-word{animation-delay:.55s}
