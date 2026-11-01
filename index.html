@@ -356,7 +356,8 @@ footer{border-top:1px solid var(--line);padding-block:40px 32px;color:var(--crea
           <label for="f-phone">رقم الجوال<input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="05XXXXXXXX" style="text-align:right"></label>
           <label for="f-city">المدينة / الحي<input id="f-city" name="city" placeholder="مثال: الرياض - حي الملقا"></label>
           <label for="f-msg">التفاصيل (اختياري)<textarea id="f-msg" name="msg" rows="3" placeholder="مثال: أبحث عن شقة 3 غرف في شمال الرياض"></textarea></label>
-          <button class="btn btn-solid" type="submit" id="f-submit">سجّل اهتمامك عبر واتساب</button>
+          <input type="text" name="website" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <button class="btn btn-solid" type="submit" id="f-submit">سجّل اهتمامك</button>
           <p class="form-note" id="f-note" aria-live="polite"></p>
         </form>
       </div>
@@ -408,7 +409,8 @@ var OSAR_CONFIG = {
   fal: "11100017854",        // رقم رخصة فال
   cr: "",              // رقم السجل التجاري
   entity: "",          // الاسم النظامي للمنشأة، مثال: "مؤسسة أوسار العقارية"
-  email: "Osarr.sa@gmail.com"
+  email: "Osarr.sa@gmail.com",
+  sheetEndpoint: ""   // رابط Google Apps Script (Web app) لحفظ تسجيلات الاهتمام في الشيت
 };
 /* ========================== */
 (function(){
@@ -453,7 +455,6 @@ var OSAR_CONFIG = {
 
   // Lead form -> WhatsApp message
   var form = document.getElementById('lead'), note = document.getElementById('f-note');
-  if (!C.whatsapp) document.getElementById('f-submit').textContent = 'جهّز الطلب';
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var need = (form.querySelector('input[name=need]:checked') || {}).value || '';
@@ -463,6 +464,28 @@ var OSAR_CONFIG = {
     if (!name || !phone) { note.textContent = 'فضلاً اكتب الاسم ورقم الجوال.'; (name ? document.getElementById('f-phone') : document.getElementById('f-name')).focus(); return; }
     var msg = document.getElementById('f-msg').value.trim();
     var text = 'السلام عليكم، أرغب بتسجيل اهتمامي\nنوع الطلب: ' + need + '\nالاسم: ' + name + '\nالجوال: ' + phone + (city ? '\nالمدينة / الحي: ' + city : '') + (msg ? '\nالتفاصيل: ' + msg : '');
+    var btn = document.getElementById('f-submit');
+    if (document.getElementById('f-hp').value) return; // spam trap
+    function openWa(){
+      var w = document.createElement('a');
+      w.href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(text);
+      w.target = '_blank'; w.rel = 'noopener';
+      document.body.appendChild(w); w.click(); w.remove();
+    }
+    if (C.sheetEndpoint) {
+      btn.disabled = true; btn.textContent = 'جارٍ التسجيل…'; note.textContent = '';
+      var body = new URLSearchParams({name:name, phone:phone, need:need, city:city, msg:msg, source:'الموقع الإلكتروني'});
+      fetch(C.sheetEndpoint, {method:'POST', mode:'no-cors', body:body}).then(function(){
+        form.reset(); btn.disabled = false; btn.textContent = 'سجّل اهتمامك';
+        note.innerHTML = '';
+        note.append('شكراً ' + name + '، تم تسجيل اهتمامك وسيتواصل معك فريق أوسار قريباً. ');
+        if (C.whatsapp) { var l = document.createElement('a'); l.href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(text); l.target = '_blank'; l.rel = 'noopener'; l.textContent = 'تواصل فوراً عبر واتساب'; note.append(l); }
+      }, function(){
+        btn.disabled = false; btn.textContent = 'سجّل اهتمامك';
+        note.textContent = 'تعذّر الإرسال، تحقق من الاتصال وحاول مرة أخرى أو راسلنا على واتساب ' + (C.phone || '');
+      });
+      return;
+    }
     if (C.whatsapp) {
       var w = document.createElement('a');
       w.href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(text);
