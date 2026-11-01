@@ -449,3 +449,4 @@ details.more summary:hover{background:var(--cream);color:var(--ground)}
 /* corner logo animates right after the splash */
 .l-beam{animation-delay:1.55s}.l-circle{animation-delay:1.65s}.l-half{animation-delay:1.8s}.logo-word{animation-delay:1.9s}
 .no-intro .l-beam{animation-delay:.1s}.no-intro .l-circle{animation-delay:.2s}.no-intro .l-half{animation-delay:.35s}.no-intro .logo-word{animation-delay:.55s}
+.no-intro .l-beam,.l-beam{animation-delay:.1s}.l-circle{animation-delay:.2s}.l-half{animation-delay:.35s}.logo-word{animation-delay:.55s}
