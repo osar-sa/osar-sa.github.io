@@ -457,3 +457,89 @@ details.more summary:hover{background:var(--cream);color:var(--ground)}
 .logo-word{animation:lFade .6s ease 1s both}
 .l-beam,.l-circle,.l-half,.logo-word{animation-play-state:paused}
 .ready .l-beam,.ready .l-circle,.ready .l-half,.ready .logo-word{animation-play-state:running}
+
+/* ===== v8: white site with black touches ===== */
+:root{
+  --ground:#FFFFFF; --ground-2:#F6F4F1; --ground-3:#ECE8E4;
+  --cream:#0A0A0A; --cream-dim:#5F5B57; --line:rgba(10,10,10,.12);
+  --teal:#0A0A0A; --violet:#0A0A0A; --teal-deep:#0A0A0A; --violet-deep:#0A0A0A;
+  color-scheme:light;
+}
+/* black blocks re-scope the tokens so everything inside reads light-on-black */
+footer,.door-card,.drawer .door,.roof,.dark-block{
+  --cream:#F4EEE9; --cream-dim:#B3ADA7; --line:rgba(244,238,233,.14);
+  --ground:#0A0A0A; --ground-2:#151515; --ground-3:#222;
+}
+footer{background:#0A0A0A;color:var(--cream-dim);border-top:0}
+.door-card{background:#0A0A0A!important;color:var(--cream);border-color:#0A0A0A}
+.door-card:hover{border-color:#0A0A0A;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.drawer .door{background:#0A0A0A!important;color:var(--cream);border-color:#0A0A0A}
+.roof{background:#0A0A0A;color:#F4EEE9}
+.slab{background:#0A0A0A;color:#F4EEE9}
+.slab small{color:#B3ADA7}
+/* icon tiles: black with cream icon */
+.ic,.vi,.pi,.si,.mv-ic,.dc-ic,.ri,.fi,.hi,.ai,.di{background-color:#0A0A0A!important;border-color:#0A0A0A!important;color:#F4EEE9!important}
+.door-card .dc-ic,.drawer .door .di{background-color:#262626!important;border-color:#333!important}
+.re-grid .feature,.sm-grid .wide2{background:var(--ground-2);border-color:rgba(10,10,10,.22)}
+.pillar:hover{background:var(--ground-3)}
+.step:nth-child(1){border-top-color:#D4D0CC}.step:nth-child(2){border-top-color:#9A9590}.step:nth-child(3){border-top-color:#55514D}
+.svc:hover{border-color:rgba(10,10,10,.35);box-shadow:0 12px 30px rgba(0,0,0,.06)}
+.foot .socials a.so{background:#1C1C1C;border-color:#2A2A2A;color:#F4EEE9}
+.ground-lines{background:repeating-linear-gradient(90deg,rgba(10,10,10,.14) 0 2px,transparent 2px 14px)}
+.scrim{background:rgba(0,0,0,.4)}
+
+/* ===== v8: WHITE site with black touches ===== */
+:root{
+  --ground:#FFFFFF; --ground-2:#F6F5F3; --ground-3:#ECEAE6;
+  --cream:#0A0A0A; --cream-dim:#5F5B56; --line:rgba(10,10,10,.12);
+  --teal:#0A0A0A; --violet:#0A0A0A; --teal-deep:#0A0A0A; --violet-deep:#0A0A0A;
+  color-scheme:light;
+}
+.ic,.vi,.pi,.si,.mv-ic,.ri,.fi,.hi,.ai{background:#ECEAE6!important;border-color:transparent!important;color:#0A0A0A!important}
+/* black touch cards */
+.door-card,.door-card.re,.door-card.sm{background:#0A0A0A;color:#F4EEE9;border-color:#0A0A0A}
+.door-card.sm{background:#1A1A1A}
+.door-card:hover{border-color:#0A0A0A;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+.door-card .dc-ic{background:rgba(244,238,233,.12)!important;color:#F4EEE9!important;border-color:transparent!important}
+.drawer .door,.drawer .door.re,.drawer .door.sm{background:#0A0A0A;color:#F4EEE9;border-color:#0A0A0A}
+.drawer .door .di{background:rgba(244,238,233,.12)!important;color:#F4EEE9!important;border:0}
+.re-grid .feature,.sm-grid .wide2{background:#0A0A0A;color:#F4EEE9;border-color:#0A0A0A}
+.re-grid .feature p,.sm-grid .wide2 p,.re-grid .feature .feat li{color:#CFC9C3}
+.re-grid .feature .ic,.sm-grid .wide2 .ic,.re-grid .feature .fi{background:rgba(244,238,233,.12)!important;color:#F4EEE9!important}
+.re-grid .feature details.more,.sm-grid .wide2 details.more{border-color:rgba(244,238,233,.15)}
+.re-grid .feature details.more summary,.sm-grid .wide2 details.more summary{color:#F4EEE9;border-color:rgba(244,238,233,.25)}
+.re-grid .feature details.more summary:hover,.sm-grid .wide2 details.more summary:hover{background:#F4EEE9;color:#0A0A0A}
+.re-grid .feature .more-body h4,.sm-grid .wide2 .more-body h4{color:#A9A39D}
+.re-grid .feature .more-body li,.sm-grid .wide2 .more-body li{color:#E9E3DD}
+.re-grid .feature .more-body .ex span,.sm-grid .wide2 .more-body .ex span{background:#1C1C1C;border-color:#2C2C2C;color:#E9E3DD}
+.re-grid .feature .more-body ol li::before,.sm-grid .wide2 .more-body ol li::before{border-color:#3A3A3A;color:#A9A39D}
+.svc{background:#FFFFFF;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.svc:hover{box-shadow:0 14px 34px rgba(0,0,0,.08)}
+.about-intro,.mv-card{background:var(--ground-2);border-color:transparent}
+.pillar{background:var(--ground-2);border-color:var(--line)}
+.pillar:hover{background:#EFEDEA}
+.step:nth-child(1){border-top-color:#D6D3CF}.step:nth-child(2){border-top-color:#A6A29D}.step:nth-child(3){border-top-color:#5E5B57}.step:nth-child(4){border-top-color:#0A0A0A}
+.hero{border-bottom:1px solid var(--line)}
+header.top{background:rgba(255,255,255,.88)}
+body::before{background:#fff}
+footer{background:#0A0A0A;color:#A9A39D;border-top:0}
+footer .lock{color:#F4EEE9}
+footer .legal b{color:#F4EEE9}
+footer .foot-links a:hover{color:#F4EEE9}
+footer .socials a{background:#1C1C1C;border-color:#2C2C2C;color:#F4EEE9}
+.socials a{background:var(--ground-3);border-color:transparent}
+.quick{background:var(--ground-3);border-color:transparent}
+.burger{background:var(--ground-3);border-color:transparent}
+.switch{background:var(--ground-3);border-color:transparent}
+form.lead{background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.06)}
+.reach .row{background:var(--ground-2);border-color:transparent}
+
+/* ===== Entry splash: black screen, icon assembles (~2s), then curtain lifts ===== */
+.intro{position:fixed;inset:0;z-index:100;background:#0A0A0A;display:grid;place-items:center;animation:curtain .7s cubic-bezier(.7,0,.2,1) 1.9s forwards}
+.intro-in{color:#F4EEE9}
+.intro svg.im{width:clamp(84px,16vw,120px);height:auto;overflow:visible;animation:iconOut .5s ease 1.75s forwards}
+.i-beam{transform-box:fill-box;transform-origin:bottom;animation:hRise .6s cubic-bezier(.2,.8,.2,1) .1s both}
+.i-circle{transform-box:fill-box;transform-origin:center;animation:hRoll .7s cubic-bezier(.2,.8,.2,1) .4s both}
+.i-half{transform-box:fill-box;transform-origin:left bottom;animation:hDrop .6s cubic-bezier(.3,1.35,.5,1) .8s both}
+@keyframes curtain{to{transform:translateY(-100%);visibility:hidden}}
+@keyframes iconOut{to{opacity:0;transform:translateY(-14px) scale(.92)}}
