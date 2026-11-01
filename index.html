@@ -201,7 +201,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 32px;color:var(--crea
       <li><a href="#marketing">التسويق والسوشال ميديا</a></li>
       <li><a href="#contact">تواصل معنا</a></li>
     </ul>
-    <a class="btn btn-solid" href="#contact">تواصل معنا</a>
+    <a class="btn btn-solid" href="#interest">سجّل اهتمامك</a>
   </div>
 </header>
 
@@ -214,7 +214,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 32px;color:var(--crea
           <h1>من أساسٍ اليوم..<span class="soft">لمجتمعٍ يدوم</span></h1>
           <p class="lede">أوسار شريكك في العقار والحضور الرقمي معاً: نبيع ونشتري ونؤجّر وندير أملاكك، وندير حسابات علامتك التجارية بالكامل من المحتوى والتصوير إلى الحملات الإعلانية.</p>
           <div class="ctas">
-            <a class="btn btn-solid" href="#contact">احجز استشارتك</a>
+            <a class="btn btn-solid" href="#interest">سجّل اهتمامك</a>
             <a class="btn btn-ghost" href="#marketing">خدمات السوشال ميديا</a>
           </div>
         </div>
@@ -338,7 +338,9 @@ footer{border-top:1px solid var(--line);padding-block:40px 32px;color:var(--crea
           <li class="ch"><span class="k">تيك توك</span><a class="v" href="https://www.tiktok.com/@osar_sa" target="_blank" rel="noopener">@OSAR_SA</a></li>
         </ul>
         <form id="lead" novalidate>
-          <h3>أرسل لنا طلبك</h3>
+          <span id="interest" style="position:relative;top:-90px"></span>
+          <h3>سجّل اهتمامك</h3>
+          <p style="font-size:14px;color:var(--cream-dim);margin-top:-8px">اترك بياناتك ويتواصل معك فريق أوسار في أقرب وقت.</p>
           <fieldset style="border:0;padding:0;margin:0;display:grid;gap:8px">
             <legend style="font-size:14px;color:var(--cream-dim);margin-bottom:6px">نوع الطلب</legend>
             <div class="chips">
@@ -351,8 +353,10 @@ footer{border-top:1px solid var(--line);padding-block:40px 32px;color:var(--crea
             </div>
           </fieldset>
           <label for="f-name">الاسم<input id="f-name" name="name" autocomplete="name" placeholder="اسمك الكريم"></label>
-          <label for="f-msg">التفاصيل<textarea id="f-msg" name="msg" rows="3" placeholder="مثال: أبحث عن شقة 3 غرف في شمال الرياض"></textarea></label>
-          <button class="btn btn-solid" type="submit" id="f-submit">أرسل عبر واتساب</button>
+          <label for="f-phone">رقم الجوال<input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="05XXXXXXXX" style="text-align:right"></label>
+          <label for="f-city">المدينة / الحي<input id="f-city" name="city" placeholder="مثال: الرياض - حي الملقا"></label>
+          <label for="f-msg">التفاصيل (اختياري)<textarea id="f-msg" name="msg" rows="3" placeholder="مثال: أبحث عن شقة 3 غرف في شمال الرياض"></textarea></label>
+          <button class="btn btn-solid" type="submit" id="f-submit">سجّل اهتمامك عبر واتساب</button>
           <p class="form-note" id="f-note" aria-live="polite"></p>
         </form>
       </div>
@@ -399,9 +403,9 @@ footer{border-top:1px solid var(--line);padding-block:40px 32px;color:var(--crea
 <script>
 /* ====== عدّل هنا فقط ====== */
 var OSAR_CONFIG = {
-  whatsapp: "",        // رقم واتساب الأعمال بالصيغة الدولية بدون + أو أصفار، مثال: "9665XXXXXXXX"
-  phone: "",           // رقم الاتصال المباشر (اختياري)
-  fal: "",             // رقم رخصة فال
+  whatsapp: "966530045080",  // رقم واتساب الأعمال بالصيغة الدولية بدون + أو أصفار
+  phone: "0530045080",       // رقم الاتصال المباشر
+  fal: "11100017854",        // رقم رخصة فال
   cr: "",              // رقم السجل التجاري
   entity: "",          // الاسم النظامي للمنشأة، مثال: "مؤسسة أوسار العقارية"
   email: "Osarr.sa@gmail.com"
@@ -454,8 +458,11 @@ var OSAR_CONFIG = {
     e.preventDefault();
     var need = (form.querySelector('input[name=need]:checked') || {}).value || '';
     var name = document.getElementById('f-name').value.trim();
+    var phone = document.getElementById('f-phone').value.trim();
+    var city = document.getElementById('f-city').value.trim();
+    if (!name || !phone) { note.textContent = 'فضلاً اكتب الاسم ورقم الجوال.'; (name ? document.getElementById('f-phone') : document.getElementById('f-name')).focus(); return; }
     var msg = document.getElementById('f-msg').value.trim();
-    var text = 'السلام عليكم، أوسار\nنوع الطلب: ' + need + (name ? '\nالاسم: ' + name : '') + (msg ? '\nالتفاصيل: ' + msg : '');
+    var text = 'السلام عليكم، أرغب بتسجيل اهتمامي\nنوع الطلب: ' + need + '\nالاسم: ' + name + '\nالجوال: ' + phone + (city ? '\nالمدينة / الحي: ' + city : '') + (msg ? '\nالتفاصيل: ' + msg : '');
     if (C.whatsapp) {
       var w = document.createElement('a');
       w.href = 'https://wa.me/' + C.whatsapp + '?text=' + encodeURIComponent(text);
