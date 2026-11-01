@@ -395,3 +395,22 @@ details.more summary:hover{background:var(--cream);color:var(--ground)}
 .more-body ol li::before{content:counter(m);width:24px;height:24px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-latin);font-size:12px;color:var(--cream-dim)}
 .more-body .ex{display:flex;flex-wrap:wrap;gap:6px}
 .more-body .ex span{font-size:13px;padding:4px 10px;border-radius:999px;background:var(--ground-3);border:1px solid var(--line)}
+
+/* ===== v5: icon + English logo, quick contact in header ===== */
+.logo-word svg{height:15px;width:auto}
+.logo-word{display:flex;align-items:center}
+.logo-anim{width:28px}
+.brand{direction:ltr;gap:10px}
+.dh-logo{display:flex;align-items:center;gap:10px;color:var(--cream);direction:ltr}
+.dh-logo svg{height:26px;width:auto}
+.dh-logo svg + svg{height:14px}
+.foot .lock{display:flex;align-items:center;gap:14px;direction:ltr;width:auto}
+.foot .lock .foot-mark svg{width:46px;height:auto}
+.foot .lock > svg{width:110px;height:auto}
+.quick{position:relative;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--ground-2);border:1px solid var(--line);color:var(--cream);transition:background .2s,color .2s,transform .2s}
+.quick svg{width:20px;height:20px}
+.quick:hover,.quick:focus-visible{background:var(--cream);color:var(--ground);transform:translateY(-2px)}
+.quick.qwa:hover,.quick.qwa:focus-visible{background:#25D366;color:#fff;border-color:transparent}
+.quick::after{content:attr(data-tip);position:absolute;top:calc(100% + 8px);left:50%;transform:translate(-50%,-4px);background:var(--cream);color:var(--ground);font-size:12px;padding:3px 10px;border-radius:999px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.quick:hover::after,.quick:focus-visible::after{opacity:1;transform:translate(-50%,0)}
+@media (max-width:420px){.nav-end{gap:6px}.quick,.burger{width:40px;height:40px}}
