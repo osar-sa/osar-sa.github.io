@@ -450,3 +450,10 @@ details.more summary:hover{background:var(--cream);color:var(--ground)}
 .l-beam{animation-delay:1.55s}.l-circle{animation-delay:1.65s}.l-half{animation-delay:1.8s}.logo-word{animation-delay:1.9s}
 .no-intro .l-beam{animation-delay:.1s}.no-intro .l-circle{animation-delay:.2s}.no-intro .l-half{animation-delay:.35s}.no-intro .logo-word{animation-delay:.55s}
 .no-intro .l-beam,.l-beam{animation-delay:.1s}.l-circle{animation-delay:.2s}.l-half{animation-delay:.35s}.logo-word{animation-delay:.55s}
+/* corner logo: start once the page is shown, a bit more noticeable */
+.l-beam{animation:lRise .7s cubic-bezier(.2,.8,.2,1) .15s both}
+.l-circle{animation:lRoll .8s cubic-bezier(.2,.8,.2,1) .35s both}
+.l-half{animation:lDrop .7s cubic-bezier(.3,1.4,.5,1) .7s both}
+.logo-word{animation:lFade .6s ease 1s both}
+.l-beam,.l-circle,.l-half,.logo-word{animation-play-state:paused}
+.ready .l-beam,.ready .l-circle,.ready .l-half,.ready .logo-word{animation-play-state:running}
