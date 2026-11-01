@@ -414,3 +414,19 @@ details.more summary:hover{background:var(--cream);color:var(--ground)}
 .quick::after{content:attr(data-tip);position:absolute;top:calc(100% + 8px);left:50%;transform:translate(-50%,-4px);background:var(--cream);color:var(--ground);font-size:12px;padding:3px 10px;border-radius:999px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
 .quick:hover::after,.quick:focus-visible::after{opacity:1;transform:translate(-50%,0)}
 @media (max-width:420px){.nav-end{gap:6px}.quick,.burger{width:40px;height:40px}}
+
+/* ===== v6: grey icon tiles (no pattern), animated hero icon ===== */
+.ic,.vi,.pi,.si,.mv-ic,.dc-ic,.ri,.fi,.hi,.ai,.di{background-image:none!important;background-color:#2B2B2B!important;border-color:#383838!important;color:var(--cream)!important}
+.door-card .dc-ic,.drawer .door .di{background-color:#333!important}
+.hero-split{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+.hero-icon{width:clamp(150px,20vw,240px);color:var(--cream)}
+.hero-icon svg{width:100%;height:auto;display:block;overflow:visible}
+.h-beam{transform-box:fill-box;transform-origin:bottom;animation:hRise .8s cubic-bezier(.2,.8,.2,1) .1s both}
+.h-circle{transform-box:fill-box;transform-origin:center;animation:hRoll .9s cubic-bezier(.2,.8,.2,1) .35s both}
+.h-half{transform-box:fill-box;transform-origin:left bottom;animation:hDrop .75s cubic-bezier(.3,1.35,.5,1) .7s both}
+@keyframes hRise{from{transform:scaleY(0)}to{transform:none}}
+@keyframes hRoll{from{transform:translateX(-140%) rotate(-220deg);opacity:0}to{transform:none;opacity:1}}
+@keyframes hDrop{from{transform:translateY(-70%) rotate(-22deg);opacity:0}to{transform:none;opacity:1}}
+.hero-icon:hover .h-circle{animation:hBounce .6s ease}
+@keyframes hBounce{40%{transform:translateY(-22%)}}
+@media (max-width:760px){.hero-split{grid-template-columns:1fr}.hero-icon{order:-1;width:120px;margin-bottom:8px}}
