@@ -604,3 +604,21 @@ header.top{background:rgba(243,239,232,.9)}
 .foot-contact .v{font-family:var(--f-latin);direction:ltr;letter-spacing:.02em}
 .foot-contact .mini{border-color:#3A3A3A;color:#F4EEE9;padding:2px 10px}
 @media (max-width:640px){.foot > div:last-child{justify-items:start!important}.foot-contact{justify-content:flex-start}}
+
+/* ===== v12: language toggle, legal badge, LTR support ===== */
+.lang{height:44px;min-width:44px;padding:0 12px;border-radius:12px;display:grid;place-items:center;background:#E8E2D8;color:var(--cream);text-decoration:none;font-family:var(--f-latin);font-weight:500;font-size:14px;letter-spacing:.06em;transition:background .2s,color .2s}
+html[lang="en"] .lang{font-family:var(--f-body);letter-spacing:0;font-size:16px}
+.lang:hover,.lang:focus-visible{background:var(--cream);color:var(--ground)}
+@media (max-width:420px){.lang{height:40px;min-width:40px;padding:0 10px}}
+.legal-badge{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+.legal-badge img{height:30px;width:auto;display:block}
+.legal-badge .lg-fal{height:28px}
+.legal-badge .sep{width:1px;height:28px;background:#3A3A3A}
+.legal-badge .fal-no{font-family:var(--f-latin);font-weight:500;font-size:15px;letter-spacing:.04em;color:#F4EEE9;direction:ltr}
+@media (max-width:640px){.legal-badge{justify-content:flex-start}}
+html[lang="en"] body{direction:ltr}
+html[lang="en"] .drawer .lnk::after{content:"→"}
+html[lang="en"] .door-card .go::after{content:"→"}
+html[lang="en"] .door-card:hover .go::after{transform:translateX(4px)}
+html[lang="en"] .hero h1{letter-spacing:-.01em}
+html[lang="en"] input[type=tel]{text-align:left!important}

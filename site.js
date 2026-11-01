@@ -37,7 +37,7 @@ var OSAR_CONFIG = {
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
   var legal = $('#legal');
   if (legal) {
-    [[C.entity, ''], [C.fal, 'رخصة فال '], [C.cr, 'س.ت ']].forEach(function (p) {
+    [[C.entity, ''], [C.cr, (document.documentElement.lang === 'en' ? 'CR ' : 'س.ت ')]].forEach(function (p) {
       if (!p[0]) return;
       var s = document.createElement('span');
       if (p[1]) { s.textContent = p[1]; var b = document.createElement('b'); b.textContent = p[0]; s.appendChild(b); }
