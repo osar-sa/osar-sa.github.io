@@ -543,3 +543,22 @@ form.lead{background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.06)}
 .i-half{transform-box:fill-box;transform-origin:left bottom;animation:hDrop .6s cubic-bezier(.3,1.35,.5,1) .8s both}
 @keyframes curtain{to{transform:translateY(-100%);visibility:hidden}}
 @keyframes iconOut{to{opacity:0;transform:translateY(-14px) scale(.92)}}
+
+/* ===== v9: light grey ground, less text ===== */
+:root{--ground:#E7E6E3;--ground-2:#F3F2F0;--ground-3:#DAD8D4}
+body::before{background:#E7E6E3}
+header.top{background:rgba(231,230,227,.88)}
+.svc,form.lead{background:var(--ground-2)}
+.reach .row,.about-intro,.mv-card,.pillar{background:var(--ground-2)}
+.ic,.vi,.pi,.si,.mv-ic,.ri,.fi,.hi,.ai{background:#DAD8D4!important}
+.socials a,.quick,.burger,.switch{background:#DAD8D4}
+.sec-head{grid-template-columns:1fr;margin-bottom:32px}
+.sec-head .latin,.sec-head p{display:none}
+body.home .hero .eyebrow{display:none}
+.door-card .tag{display:none}
+.door-card{min-height:0}
+.val span:last-child{display:none}
+.slab small,.ground-lines{display:none}
+.pillar{min-height:0!important}
+.step{padding-bottom:4px}
+section.block{padding-block:72px}

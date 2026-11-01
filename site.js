@@ -66,7 +66,7 @@ var OSAR_CONFIG = {
     if ($('#f-hp').value) return;
     var need = (form.querySelector('input[name=need]:checked') || {}).value || '';
     var name = $('#f-name').value.trim(), phone = $('#f-phone').value.trim(),
-        city = $('#f-city').value.trim(), msg = $('#f-msg').value.trim();
+        city = ($('#f-city') || { value: '' }).value.trim(), msg = ($('#f-msg') || { value: '' }).value.trim();
     if (!name || !phone) { note.textContent = 'فضلاً اكتب الاسم ورقم الجوال.'; (name ? $('#f-phone') : $('#f-name')).focus(); return; }
     var text = 'السلام عليكم، أرغب بتسجيل اهتمامي\nنوع الطلب: ' + need + '\nالاسم: ' + name + '\nالجوال: ' + phone +
       (city ? '\nالمدينة / الحي: ' + city : '') + (msg ? '\nالتفاصيل: ' + msg : '');
