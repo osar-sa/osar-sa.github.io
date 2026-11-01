@@ -64,7 +64,7 @@ var OSAR_CONFIG = {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if ($('#f-hp').value) return;
-    var need = (form.querySelector('input[name=need]:checked') || {}).value || '';
+    var need = (form.querySelector('input[name=need]:checked') || {}).value || (document.body.getAttribute('data-page') || '');
     var name = $('#f-name').value.trim(), phone = $('#f-phone').value.trim(),
         city = ($('#f-city') || { value: '' }).value.trim(), msg = ($('#f-msg') || { value: '' }).value.trim();
     if (!name || !phone) { note.textContent = 'فضلاً اكتب الاسم ورقم الجوال.'; (name ? $('#f-phone') : $('#f-name')).focus(); return; }

@@ -585,3 +585,11 @@ section.block{padding-block:72px}
 .work p{color:var(--cream-dim);font-size:15px}
 @media (max-width:900px){.clients{grid-template-columns:repeat(3,1fr)}.works{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.works{grid-template-columns:1fr}.clients{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== v10: Thmanyah-like warm off-white ===== */
+:root{--ground:#F3EFE8;--ground-2:#FBF9F5;--ground-3:#E8E2D8;--cream:#121212;--cream-dim:#6E675E;--line:rgba(18,18,18,.1)}
+body::before{background:#F3EFE8}
+header.top{background:rgba(243,239,232,.9)}
+.ic,.vi,.pi,.si,.mv-ic,.ri,.fi,.hi,.ai{background:#E8E2D8!important;color:#121212!important}
+.socials a,.quick,.burger,.switch{background:#E8E2D8}
+.hero h1{letter-spacing:-.02em;font-weight:700}
