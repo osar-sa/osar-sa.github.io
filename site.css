@@ -2,16 +2,16 @@
    Layout: deep petrol ground with an aurora of the two arms — teal for real estate, violet for social media.
    A "foundation line" runs under every section; the brand mark is the hero. */
 :root{
-  --ground:#0C2321;      /* petrol base, replaces black */
-  --ground-2:#0F2C29;    /* raised surface */
-  --ground-3:#143834;    /* cards / inputs */
+  --ground:#0B0908;      /* petrol base, replaces black */
+  --ground-2:#15100D;    /* raised surface */
+  --ground-3:#1E1612;    /* cards / inputs */
   --cream:#F4EEE9;       /* brand cream from the logo */
-  --cream-dim:#AFC0BC;   /* secondary text on petrol */
+  --cream-dim:#B5ABA2;   /* secondary text on petrol */
   --line:rgba(244,238,233,.12);
-  --teal:#3FAE9C;        /* real estate arm */
-  --teal-deep:#1D6F63;
-  --violet:#8A78F2;      /* social media arm */
-  --violet-deep:#4E3FB0;
+  --teal:#E6DACE;        /* real estate arm */
+  --teal-deep:#2B1F18;
+  --violet:#D9CBBE;      /* social media arm */
+  --violet-deep:#221812;
   --accent:var(--cream);
   --f-display:"Alexandria","IBM Plex Sans Arabic",system-ui,sans-serif;
   --f-body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
@@ -45,15 +45,15 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .nav-end{display:flex;align-items:center;gap:10px}
 .switch{display:flex;background:var(--ground-2);border:1px solid var(--line);border-radius:999px;padding:3px}
 .switch a{font-size:13px;text-decoration:none;padding:6px 14px;border-radius:999px;color:var(--cream-dim);white-space:nowrap}
-.switch a.on-re{background:var(--teal);color:#06201C}
-.switch a.on-sm{background:var(--violet);color:#120C33}
+.switch a.on-re{background:var(--cream);color:var(--ground)}
+.switch a.on-sm{background:var(--cream);color:var(--ground)}
 .burger{width:44px;height:44px;display:grid;place-content:center;gap:5px;background:var(--ground-2);border:1px solid var(--line);border-radius:12px;cursor:pointer;padding:0}
 .burger span{display:block;width:20px;height:2px;background:var(--cream);border-radius:2px;transition:transform .25s,opacity .2s}
 .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media (max-width:560px){.switch{display:none}}
-.scrim{position:fixed;inset:0;background:rgba(4,14,13,.6);z-index:40;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim{position:fixed;inset:0;background:rgba(5,4,3,.65);z-index:40;opacity:0;pointer-events:none;transition:opacity .25s}
 .scrim.open{opacity:1;pointer-events:auto}
 .drawer{position:fixed;top:0;bottom:0;right:0;width:min(360px,88vw);z-index:50;background:var(--ground-2);border-inline-start:1px solid var(--line);transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;padding:calc(20px + env(safe-area-inset-top,0px)) max(22px,env(safe-area-inset-right,0px)) calc(22px + env(safe-area-inset-bottom,0px)) 22px;overflow-y:auto}
 .drawer.open{transform:none}
@@ -64,8 +64,8 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .drawer .door{display:grid;gap:2px;text-decoration:none;padding:14px 16px;border-radius:14px;margin-bottom:6px}
 .drawer .door b{font-family:var(--f-display);font-weight:500;font-size:19px}
 .drawer .door small{font-size:13px;opacity:.85}
-.drawer .door.re{background:linear-gradient(135deg,var(--teal-deep),#174a44);border:1px solid color-mix(in srgb,var(--teal) 50%,transparent)}
-.drawer .door.sm{background:linear-gradient(135deg,var(--violet-deep),#2c2470);border:1px solid color-mix(in srgb,var(--violet) 50%,transparent)}
+.drawer .door.re{background:linear-gradient(135deg,#2E2119,#17110D);border:1px solid var(--line)}
+.drawer .door.sm{background:linear-gradient(135deg,#1F1713,#0F0C0A);border:1px solid var(--line)}
 .drawer .lnk{text-decoration:none;padding:12px 4px;border-bottom:1px solid var(--line);font-size:17px;display:flex;justify-content:space-between}
 .drawer .lnk::after{content:"←";color:var(--cream-dim)}
 .drawer .socials{margin-top:auto;padding-top:24px}
@@ -103,8 +103,8 @@ body.sm .hero::before{background:var(--violet-deep);opacity:.5}
 .doors{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
 .door-card{position:relative;display:grid;gap:10px;align-content:start;text-decoration:none;padding:28px;border-radius:22px;min-height:220px;overflow:hidden;transition:transform .25s}
 .door-card:hover{transform:translateY(-4px)}
-.door-card.re{background:linear-gradient(150deg,#1F7A6C 0%,#124A43 100%)}
-.door-card.sm{background:linear-gradient(150deg,#5B4BC8 0%,#2E2575 100%)}
+.door-card.re{background:linear-gradient(150deg,#2E2119 0%,#120D0A 100%)}
+.door-card.sm{background:linear-gradient(150deg,#1D1612 0%,#0E0B09 100%)}
 .door-card .tag{font-size:13px;opacity:.85}
 .door-card h2{font-size:clamp(24px,3vw,32px)}
 .door-card p{opacity:.88;max-width:26em}
@@ -149,13 +149,13 @@ section.block{padding-block:88px}
 .pillar:nth-child(3){min-height:240px;animation-delay:.25s}
 .pillar:nth-child(4){min-height:240px;animation-delay:.35s}
 @keyframes raise{from{transform:scaleY(.7);opacity:.4}to{transform:none;opacity:1}}
-.pillar:hover{transform:none;background:linear-gradient(180deg,#18423D,var(--ground-2));border-color:color-mix(in srgb,var(--cream) 40%,transparent)}
+.pillar:hover{transform:none;background:linear-gradient(180deg,#2A1E17,var(--ground-2));border-color:color-mix(in srgb,var(--cream) 40%,transparent)}
 .pillar .cap{height:6px;border-radius:3px;margin-bottom:8px;background:linear-gradient(90deg,var(--teal),var(--violet))}
 .pillar .n{font-family:var(--f-latin);font-size:13px;color:var(--cream-dim);font-variant-numeric:tabular-nums}
 .pillar h3{font-size:20px}
 .pillar p{font-size:15px;color:var(--cream-dim);line-height:1.7}
 .slab{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:16px 20px;background:var(--cream);color:var(--ground);border-radius:4px 4px 14px 14px;font-family:var(--f-display);font-weight:700;font-size:clamp(16px,2vw,20px)}
-.slab small{font-family:var(--f-body);font-weight:400;font-size:13px;color:#3C514E}
+.slab small{font-family:var(--f-body);font-weight:400;font-size:13px;color:#6B5E54}
 .ground-lines{height:18px;background:repeating-linear-gradient(90deg,var(--line) 0 2px,transparent 2px 14px);margin-top:6px;border-radius:2px}
 @media (max-width:760px){.pillars{grid-template-columns:1fr 1fr}.pillar:nth-child(n){min-height:0}}
 
@@ -297,13 +297,13 @@ footer{border-top:1px solid var(--line);padding-block:40px 30px;color:var(--crea
 
 /* Services */
 .re-grid{grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto}
-.re-grid .feature{grid-row:span 2;background:linear-gradient(160deg,#16443F,var(--ground-2) 70%);border-color:color-mix(in srgb,var(--teal) 40%,transparent)}
+.re-grid .feature{grid-row:span 2;background:linear-gradient(160deg,#2A1E17,var(--ground-2) 70%);border-color:color-mix(in srgb,var(--teal) 40%,transparent)}
 .feat{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
 .feat li{display:flex;align-items:center;gap:12px;font-size:15px}
 .feat .fi{width:34px;height:34px;border-radius:10px;background:color-mix(in srgb,var(--teal) 18%,transparent);color:var(--teal)}
 .feat .fi svg{width:18px;height:18px}
 .sm-grid{grid-template-columns:repeat(3,1fr)}
-.sm-grid .wide2{grid-column:span 2;background:linear-gradient(160deg,#2A2470,var(--ground-2) 75%);border-color:color-mix(in srgb,var(--violet) 40%,transparent)}
+.sm-grid .wide2{grid-column:span 2;background:linear-gradient(160deg,#2A1E17,var(--ground-2) 75%);border-color:color-mix(in srgb,var(--violet) 40%,transparent)}
 .svc{transition:transform .25s,border-color .25s}
 .svc:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 50%,transparent)}
 .svc:hover .ic{transform:rotate(-8deg) scale(1.06)}
@@ -351,3 +351,6 @@ form.lead .hi svg{width:22px;height:22px}
 .values .val > span{border:0;padding:0;font-size:inherit}
 .values .val > span.vi{border-radius:12px;font-size:0}
 .values .val > span:last-child{font-size:15px}
+.door-card{border:1px solid var(--line)}
+.door-card:hover{border-color:color-mix(in srgb,var(--cream) 35%,transparent)}
+.re-grid .feature,.sm-grid .wide2{border-color:color-mix(in srgb,var(--cream) 22%,transparent)}
