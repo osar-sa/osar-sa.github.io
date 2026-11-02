@@ -770,3 +770,14 @@ footer{background:var(--ground)!important;color:var(--cream-dim)!important;borde
 footer .lock{color:var(--cream)!important}
 footer,.door-card,.drawer .door,.roof,.dark-block{--cream:#121212;--cream-dim:#6E675E;--line:rgba(18,18,18,.12);--ground:#FAF9F7;--ground-2:#FFFFFF;--ground-3:#EFEDE9}
 footer .socials a.so{background:transparent!important;border:1px solid var(--line)!important;color:var(--cream)!important}
+
+/* ===== v16: required choices + thank-you panel ===== */
+.req{color:#B3261E;font-weight:700}
+#need-set legend{display:flex;gap:4px;align-items:center}
+.thanks{display:grid;justify-items:center;text-align:center;gap:10px;padding:40px 24px;border:1px solid var(--line);border-radius:10px;background:var(--ground-2);outline:none;animation:moreIn .4s ease}
+.thanks .th-mark{width:56px;color:var(--cream);margin-bottom:6px}
+.thanks .th-mark svg{width:100%;height:auto;display:block}
+.thanks h3{font-size:22px}
+.thanks p{color:var(--cream-dim)}
+.thanks .th-phone a{font-family:var(--f-latin);font-weight:500;color:var(--cream);text-decoration:none;letter-spacing:.04em}
+.thanks .th-slogan{margin-top:10px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--f-display);font-weight:500;font-size:17px;color:var(--cream)}

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600&family=Almarai:wght@300;400;700&family=Jost:wght@400;500&display=swap">
-<link rel="stylesheet" href="site.css?v=1793622750">
+<link rel="stylesheet" href="site.css?v=1793623114">
 </head>
 <body class="sm" data-page="السوشال ميديا">
 <div class="intro" id="intro" aria-hidden="true"><div class="intro-in">
@@ -115,18 +115,25 @@
   <div class="wrap">
     <div class="sec-head"><span class="latin">Start here</span><div><h2>خلّنا نبني حضور علامتك</h2><p>سجّل اهتمامك، ونرجع لك بفكرة أولية تناسب مجالك.</p></div></div>
     <div class="contact-grid solo">
-      <form class="lead" id="lead" novalidate>
+      <form class="lead" id="lead" novalidate data-path="إدارة السوشال ميديا">
         <span id="interest" style="position:absolute;top:-90px"></span>
         <h3>سجّل اهتمامك</h3>
         <p class="sub">نتواصل معك خلال 24 ساعة.</p>
         
-        <label for="f-name">الاسم<input id="f-name" name="name" autocomplete="name" placeholder="اسمك الكريم"></label>
-        <label for="f-phone">رقم الجوال<input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="05XXXXXXXX" style="text-align:right"></label>
+        <label for="f-name">الاسم <span class="req">*</span><input id="f-name" name="name" autocomplete="name" placeholder="اسمك الكريم"></label>
+        <label for="f-phone">رقم الجوال <span class="req">*</span><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" placeholder="05XXXXXXXX" style="text-align:right"></label>
         <label for="f-msg">التفاصيل (اختياري)<textarea id="f-msg" name="msg" rows="3" placeholder="اكتب لنا باختصار وش تحتاج"></textarea></label>
         <input class="hp" type="text" name="website" id="f-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button class="btn btn-solid" type="submit" id="f-submit">سجّل اهتمامك</button>
         <p class="form-note" id="f-note" aria-live="polite"></p>
       </form>
+      <div class="thanks" id="thanks" hidden tabindex="-1">
+        <span class="th-mark" aria-hidden="true"><svg viewBox="340 350 400 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="currentColor"><circle class="m-circle" cx="412" cy="656" r="63"/><path class="m-half" d="M413 534 A108 108 0 0 1 523 720 Z"/><path class="m-beam" d="M515 357 L733 720 L638 720 L472 432 Z"/></g></svg></span>
+        <h3>شكراً <span id="th-name"></span>، وصلنا اهتمامك</h3>
+        <p>بيتواصل معك فريق أوسار خلال 24 ساعة.</p>
+        <p class="th-phone">للتواصل المباشر: <a href="tel:0565603814" dir="ltr">0565603814</a></p>
+        <p class="th-slogan">من أساسٍ اليوم.. لمجتمعٍ يدوم</p>
+      </div>
     </div>
   </div>
 </section>
@@ -161,6 +168,6 @@
     </div>
   </div>
 </footer>
-<script src="site.js?v=1793622750"></script>
+<script src="site.js?v=1793623114"></script>
 </body>
 </html>

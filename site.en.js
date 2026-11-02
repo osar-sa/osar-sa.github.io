@@ -65,10 +65,15 @@ var OSAR_CONFIG = {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if ($('#f-hp').value) return;
-    var need = (form.querySelector('input[name=need]:checked') || {}).value || (document.body.getAttribute('data-page') || '');
+    var hasChoices = !!form.querySelector('input[name=need]');
+    var picked = form.querySelector('input[name=need]:checked');
+    var need = picked ? picked.value : '';
     var name = $('#f-name').value.trim(), phone = $('#f-phone').value.trim(),
         city = ($('#f-city') || { value: '' }).value.trim(), msg = ($('#f-msg') || { value: '' }).value.trim();
+    if (hasChoices && !picked) { note.textContent = 'Please choose a request type.'; form.querySelector('input[name=need]').focus(); return; }
     if (!name || !phone) { note.textContent = 'Please enter your name and mobile number.'; (name ? $('#f-phone') : $('#f-name')).focus(); return; }
+    var path = form.getAttribute('data-path') || need;
+    need = (need && need !== path) ? (path + ' — ' + need) : path;
     var text = 'Hello OSAR, I would like to register my interest\nRequest: ' + need + '\nName: ' + name + '\nMobile: ' + phone +
       (city ? '\nCity / district: ' + city : '') + (msg ? '\nDetails: ' + msg : '');
     var source = 'Website (EN) - ' + (document.body.getAttribute('data-page') || '');
@@ -88,8 +93,10 @@ var OSAR_CONFIG = {
     }
     btn.disabled = true; btn.textContent = 'Sending…'; note.textContent = '';
     fetch(target, { method: 'POST', mode: 'no-cors', body: body }).then(function () {
-      form.reset(); btn.disabled = false; btn.textContent = label;
-      note.textContent = 'Thank you ' + name + ', we received your interest and will contact you within 24 hours.';
+      form.reset(); btn.disabled = false; btn.textContent = label; note.textContent = '';
+      var th = $('#thanks');
+      if (th) { $('#th-name').textContent = name; form.hidden = true; th.hidden = false; th.focus(); }
+      else note.textContent = 'Thank you ' + name + ', we received your interest and will contact you within 24 hours.';
     }, function () {
       btn.disabled = false; btn.textContent = label;
       note.textContent = 'Could not send. Check your connection and try again, or contact us at ' + C.phone;

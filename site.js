@@ -65,10 +65,15 @@ var OSAR_CONFIG = {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if ($('#f-hp').value) return;
-    var need = (form.querySelector('input[name=need]:checked') || {}).value || (document.body.getAttribute('data-page') || '');
+    var hasChoices = !!form.querySelector('input[name=need]');
+    var picked = form.querySelector('input[name=need]:checked');
+    var need = picked ? picked.value : '';
     var name = $('#f-name').value.trim(), phone = $('#f-phone').value.trim(),
         city = ($('#f-city') || { value: '' }).value.trim(), msg = ($('#f-msg') || { value: '' }).value.trim();
+    if (hasChoices && !picked) { note.textContent = 'فضلاً اختر نوع الطلب.'; form.querySelector('input[name=need]').focus(); return; }
     if (!name || !phone) { note.textContent = 'فضلاً اكتب الاسم ورقم الجوال.'; (name ? $('#f-phone') : $('#f-name')).focus(); return; }
+    var path = form.getAttribute('data-path') || need;
+    need = (need && need !== path) ? (path + ' — ' + need) : path;
     var text = 'السلام عليكم، أرغب بتسجيل اهتمامي\nنوع الطلب: ' + need + '\nالاسم: ' + name + '\nالجوال: ' + phone +
       (city ? '\nالمدينة / الحي: ' + city : '') + (msg ? '\nالتفاصيل: ' + msg : '');
     var source = 'الموقع - ' + (document.body.getAttribute('data-page') || '');
@@ -88,8 +93,10 @@ var OSAR_CONFIG = {
     }
     btn.disabled = true; btn.textContent = 'جارٍ التسجيل…'; note.textContent = '';
     fetch(target, { method: 'POST', mode: 'no-cors', body: body }).then(function () {
-      form.reset(); btn.disabled = false; btn.textContent = label;
-      note.textContent = 'شكراً ' + name + '، وصلنا اهتمامك وبنتواصل معك خلال 24 ساعة.';
+      form.reset(); btn.disabled = false; btn.textContent = label; note.textContent = '';
+      var th = $('#thanks');
+      if (th) { $('#th-name').textContent = name; form.hidden = true; th.hidden = false; th.focus(); }
+      else note.textContent = 'شكراً ' + name + '، وصلنا اهتمامك وبنتواصل معك خلال 24 ساعة.';
     }, function () {
       btn.disabled = false; btn.textContent = label;
       note.textContent = 'تعذّر الإرسال. تحقق من الاتصال وحاول مرة أخرى، أو تواصل معنا على ' + C.phone;
