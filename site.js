@@ -6,7 +6,8 @@ var OSAR_CONFIG = {
   fal: "11100017854",           // رقم رخصة فال
   cr: "",                       // رقم السجل التجاري
   entity: "",                   // الاسم النظامي للمنشأة
-  sheetEndpoint: ""             // رابط Google Apps Script لحفظ تسجيلات الاهتمام في الشيت
+  sheetEndpoint: "",            // رابط Google Apps Script (بديل)
+  googleForm: null              // { action: "https://docs.google.com/forms/d/e/.../formResponse", fields: { need: "entry.X", name: "entry.X", phone: "entry.X", msg: "entry.X", source: "entry.X" } }
 };
 /* ========================================== */
 (function () {
@@ -70,21 +71,28 @@ var OSAR_CONFIG = {
     if (!name || !phone) { note.textContent = 'فضلاً اكتب الاسم ورقم الجوال.'; (name ? $('#f-phone') : $('#f-name')).focus(); return; }
     var text = 'السلام عليكم، أرغب بتسجيل اهتمامي\nنوع الطلب: ' + need + '\nالاسم: ' + name + '\nالجوال: ' + phone +
       (city ? '\nالمدينة / الحي: ' + city : '') + (msg ? '\nالتفاصيل: ' + msg : '');
-    if (C.sheetEndpoint) {
-      btn.disabled = true; btn.textContent = 'جارٍ التسجيل…'; note.textContent = '';
-      var body = new URLSearchParams({ name: name, phone: phone, need: need, city: city, msg: msg, source: 'الموقع - ' + (document.body.getAttribute('data-page') || '') });
-      fetch(C.sheetEndpoint, { method: 'POST', mode: 'no-cors', body: body }).then(function () {
-        form.reset(); btn.disabled = false; btn.textContent = label; note.textContent = '';
-        note.append('شكراً ' + name + '، وصلنا اهتمامك وبنتواصل معك قريباً. ');
-        var l = document.createElement('a'); l.href = waLink(text); l.target = '_blank'; l.rel = 'noopener'; l.textContent = 'تواصل فوراً عبر واتساب'; note.append(l);
-      }, function () {
-        btn.disabled = false; btn.textContent = label;
-        note.textContent = 'تعذّر الإرسال. تحقق من الاتصال وحاول مرة أخرى، أو تواصل معنا على ' + C.phone;
-      });
+    var source = 'الموقع - ' + (document.body.getAttribute('data-page') || '');
+    var G = C.googleForm || {};
+    var target = null, body = null;
+    if (G.action && G.fields) {
+      target = G.action; body = new URLSearchParams();
+      var vals = { need: need, name: name, phone: phone, msg: msg, source: source };
+      Object.keys(G.fields).forEach(function (k) { if (G.fields[k]) body.append(G.fields[k], vals[k] || ''); });
+    } else if (C.sheetEndpoint) {
+      target = C.sheetEndpoint;
+      body = new URLSearchParams({ name: name, phone: phone, need: need, city: city, msg: msg, source: source });
+    }
+    if (!target) {
+      note.textContent = 'التسجيل عبر الموقع قيد التفعيل حالياً، تواصل معنا على ' + C.phone;
       return;
     }
-    var w = document.createElement('a'); w.href = waLink(text); w.target = '_blank'; w.rel = 'noopener';
-    document.body.appendChild(w); w.click(); w.remove();
-    note.textContent = 'إذا لم يُفتح واتساب، تواصل معنا على ' + C.phone;
+    btn.disabled = true; btn.textContent = 'جارٍ التسجيل…'; note.textContent = '';
+    fetch(target, { method: 'POST', mode: 'no-cors', body: body }).then(function () {
+      form.reset(); btn.disabled = false; btn.textContent = label;
+      note.textContent = 'شكراً ' + name + '، وصلنا اهتمامك وبنتواصل معك خلال 24 ساعة.';
+    }, function () {
+      btn.disabled = false; btn.textContent = label;
+      note.textContent = 'تعذّر الإرسال. تحقق من الاتصال وحاول مرة أخرى، أو تواصل معنا على ' + C.phone;
+    });
   });
 })();
