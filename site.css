@@ -740,3 +740,33 @@ header.top{background:rgba(250,249,247,.92);border-bottom:1px solid var(--line)}
 .sec-head h2{font-weight:600}
 .fields span{border-radius:999px;background:transparent;border:1px solid var(--line)}
 @media (max-width:640px){.switch{gap:0;border-top:1px solid var(--line);padding-top:4px}.switch a{font-size:14px}.switch a.on-re::after,.switch a.on-sm::after{bottom:-2px}}
+
+/* ===== v15: no sudden black blocks ===== */
+.hero .lede b{font-weight:700;color:var(--cream)}
+.door-card,.door-card.re,.door-card.sm{background:var(--ground-2);color:var(--cream);border:1px solid var(--line)}
+.door-card:hover{border-color:var(--cream)}
+.door-card p,.door-card .tag{color:var(--cream-dim)}
+.door-card .dc-ic{background:var(--ground-3)!important;color:var(--cream)!important}
+.door-card .go{color:var(--cream)}
+.drawer .door,.drawer .door.re,.drawer .door.sm{background:var(--ground-2);color:var(--cream);border:1px solid var(--line)}
+.drawer .door small{color:var(--cream-dim)}
+.drawer .door .di{background:var(--ground-3)!important;color:var(--cream)!important}
+form.lead::before,body.re form.lead::before,body.sm form.lead::before{display:none}
+form.lead{border:1px solid var(--line);background:var(--ground-2)}
+footer{background:var(--ground);color:var(--cream-dim);border-top:1px solid var(--line)}
+footer .lock,footer .legal b,footer .legal-badge .fal-no{color:var(--cream)}
+footer .foot-links a:hover{color:var(--cream)}
+footer .socials a{background:transparent;border:1px solid var(--line);color:var(--cream)}
+.legal-badge .sep{background:var(--line)}
+.foot-contact a,.foot-contact .fe{background:transparent;border:1px solid var(--line);color:var(--cream)}
+.foot-contact a:hover{background:var(--ground-3)}
+.foot-contact .ri{background:var(--ground-3)!important;color:var(--cream)!important}
+.foot-contact .mini{border-color:var(--line);color:var(--cream)}
+.work-tag{background:var(--ground-3);color:var(--cream)}
+.btn-solid{background:var(--cream);color:var(--ground)}
+.door-card,.door-card.re,.door-card.sm,.drawer .door,.drawer .door.re,.drawer .door.sm{background:var(--ground-2)!important;color:var(--cream)!important;border:1px solid var(--line)!important}
+.door-card:hover{border-color:var(--cream)!important}
+footer{background:var(--ground)!important;color:var(--cream-dim)!important;border-top:1px solid var(--line)!important}
+footer .lock{color:var(--cream)!important}
+footer,.door-card,.drawer .door,.roof,.dark-block{--cream:#121212;--cream-dim:#6E675E;--line:rgba(18,18,18,.12);--ground:#FAF9F7;--ground-2:#FFFFFF;--ground-3:#EFEDE9}
+footer .socials a.so{background:transparent!important;border:1px solid var(--line)!important;color:var(--cream)!important}
