@@ -3,7 +3,7 @@ var OSAR_CONFIG = {
   phone: "0565603814",          // رقم التواصل والاتصال
   whatsapp: "966565603814",     // نفس الرقم بالصيغة الدولية (بدون + وبدون الصفر الأول)
   email: "Osarr.sa@gmail.com",
-  fal: "11100017854",           // رقم رخصة فال
+  fal: "1100017854",           // رقم رخصة فال
   cr: "",                       // رقم السجل التجاري
   entity: "",                   // الاسم النظامي للمنشأة
   sheetEndpoint: "https://script.google.com/macros/s/AKfycbxagRHDjUKPL-mzddM_tP7tNdz-W96etMyNvoUdcZYC7UzmAg2l2rTFXgRf-AqfCBcASA/exec", // يحفظ التسجيلات في صفحة «تسجيلات اهتمام الموقع الإلكتروني»
