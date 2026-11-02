@@ -6,7 +6,7 @@ var OSAR_CONFIG = {
   fal: "11100017854",           // رقم رخصة فال
   cr: "",                       // رقم السجل التجاري
   entity: "",                   // الاسم النظامي للمنشأة
-  sheetEndpoint: "",            // رابط Google Apps Script (بديل)
+  sheetEndpoint: "https://script.google.com/macros/s/AKfycbxagRHDjUKPL-mzddM_tP7tNdz-W96etMyNvoUdcZYC7UzmAg2l2rTFXgRf-AqfCBcASA/exec", // يحفظ التسجيلات في صفحة «تسجيلات اهتمام الموقع الإلكتروني»
   googleForm: null              // { action: "https://docs.google.com/forms/d/e/.../formResponse", fields: { need: "entry.X", name: "entry.X", phone: "entry.X", msg: "entry.X", source: "entry.X" } }
 };
 /* ========================================== */
