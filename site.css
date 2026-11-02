@@ -781,3 +781,4 @@ footer .socials a.so{background:transparent!important;border:1px solid var(--lin
 .thanks p{color:var(--cream-dim)}
 .thanks .th-phone a{font-family:var(--f-latin);font-weight:500;color:var(--cream);text-decoration:none;letter-spacing:.04em}
 .thanks .th-slogan{margin-top:10px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--f-display);font-weight:500;font-size:17px;color:var(--cream)}
+[hidden]{display:none!important}
