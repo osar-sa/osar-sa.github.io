@@ -782,3 +782,4 @@ footer .socials a.so{background:transparent!important;border:1px solid var(--lin
 .thanks .th-phone a{font-family:var(--f-latin);font-weight:500;color:var(--cream);text-decoration:none;letter-spacing:.04em}
 .thanks .th-slogan{margin-top:10px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--f-display);font-weight:500;font-size:17px;color:var(--cream)}
 [hidden]{display:none!important}
+.so-li:hover,.so-li:focus-visible{background:#0A66C2!important;color:#fff!important;border-color:transparent!important;box-shadow:0 8px 22px rgba(10,102,194,.3)}
