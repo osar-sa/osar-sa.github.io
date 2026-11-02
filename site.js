@@ -94,6 +94,7 @@ var OSAR_CONFIG = {
     btn.disabled = true; btn.textContent = 'جارٍ التسجيل…'; note.textContent = '';
     fetch(target, { method: 'POST', mode: 'no-cors', body: body }).then(function () {
       form.reset(); btn.disabled = false; btn.textContent = label; note.textContent = '';
+      try { if (window.gtag) gtag('event', 'generate_lead', { page: document.body.getAttribute('data-page') || '', need: need }); } catch (e) {}
       var th = $('#thanks');
       if (th) { $('#th-name').textContent = name; form.hidden = true; th.hidden = false; th.focus(); }
       else note.textContent = 'شكراً ' + name + '، وصلنا اهتمامك وبنتواصل معك خلال 24 ساعة.';
