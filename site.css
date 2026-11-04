@@ -783,3 +783,18 @@ footer .socials a.so{background:transparent!important;border:1px solid var(--lin
 .thanks .th-slogan{margin-top:10px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--f-display);font-weight:500;font-size:17px;color:var(--cream)}
 [hidden]{display:none!important}
 .so-li:hover,.so-li:focus-visible{background:#0A66C2!important;color:#fff!important;border-color:transparent!important;box-shadow:0 8px 22px rgba(10,102,194,.3)}
+
+/* v17 privacy + consent */
+.consent{font-size:12.5px;line-height:1.7;color:var(--cream-dim);margin:6px 0 0}
+.consent a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.policy{max-width:760px;margin-inline:auto;display:block}
+.policy h1{font-family:var(--f-display);font-weight:600;font-size:clamp(28px,4vw,38px);margin:8px 0 4px}
+.policy .upd{font-size:13px;color:var(--cream-dim);margin:0 0 24px}
+.policy h2{font-family:var(--f-display);font-weight:500;font-size:19px;margin:30px 0 8px}
+.policy p,.policy li{font-size:15.5px;line-height:1.95;color:var(--cream)}
+.policy ul{padding-inline-start:20px;margin:6px 0}
+.policy a{text-decoration:underline;text-underline-offset:3px}
+.del-box{margin:26px 0;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--ground-2)}
+.del-box h3{font-family:var(--f-display);font-weight:500;font-size:18px;margin:0 0 6px}
+.del-box .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.del-box .btn{text-decoration:none}
