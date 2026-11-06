@@ -16,7 +16,7 @@
 <meta property="og:locale" content="ar_SA">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500&family=Jost:wght@300;400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500&family=Jost:wght@300;400&family=IBM+Plex+Sans+Arabic:wght@300;400&display=swap">
 <style>
 /* ===== ألوان الهوية — بدّلها هنا فقط لما توصل الهوية الجديدة ===== */
 :root{
@@ -55,8 +55,11 @@ header{top:clamp(28px,5.5vh,64px)}
 .logo{width:clamp(110px,13vw,170px);color:var(--ink);display:block}
 .tag{font-family:var(--f-en);font-weight:300;font-size:clamp(10px,1.1vw,14px);letter-spacing:.32em;color:var(--ink-dim);text-transform:uppercase}
 main{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:clamp(10px,2vh,22px);text-align:center;z-index:2;padding:0 22px}
-h1{font-weight:500;font-size:clamp(56px,9vw,124px);line-height:1.1;letter-spacing:0;white-space:nowrap}
-.slogan{font-weight:300;font-size:clamp(14px,1.4vw,19px);color:var(--ink-dim);margin-top:clamp(10px,2.4vh,26px);white-space:nowrap}
+h1{font-family:"IBM Plex Sans Arabic",var(--f-ar);font-weight:300;display:flex;align-items:center;gap:clamp(12px,1.6vw,24px);direction:ltr;white-space:nowrap;color:var(--ink)}
+h1 .en{font-size:clamp(26px,6.4vw,84px);letter-spacing:.06em;line-height:1}
+h1 .ar{font-size:clamp(16px,3vw,42px);direction:rtl;line-height:1;color:var(--ink-dim)}
+h1 .dot{width:clamp(8px,.9vw,13px);height:clamp(8px,.9vw,13px);border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent);flex:none}
+.slogan{font-family:"IBM Plex Sans Arabic",var(--f-ar);font-weight:300;font-size:clamp(14px,1.4vw,19px);color:var(--ink-dim);margin-top:clamp(10px,2.4vh,26px);white-space:nowrap}
 .slogan .acc{color:var(--accent)}
 .soon{font-family:var(--f-en);font-weight:300;font-size:clamp(20px,3vw,40px);letter-spacing:.42em;padding-inline-start:.42em;color:var(--accent);direction:ltr;margin-top:-.2em}
 .rise{opacity:0;transform:translateY(14px);filter:blur(8px);animation:rise 1.4s cubic-bezier(.2,.7,.2,1) forwards}
@@ -102,8 +105,7 @@ footer{bottom:clamp(22px,4.5vh,48px);gap:24px}
   <span class="tag rise d0">Creative Studio — 2026</span>
 </header>
 <main>
-  <h1 class="rise d1">قريباً..</h1>
-  <p class="soon rise d1">COMING SOON</p>
+  <h1 class="rise d1"><span class="en">COMING SOON</span><i class="dot"></i><span class="ar">قريباً</span></h1>
   <p class="slogan rise d2">من أساسٍ اليوم.. <span class="acc">لمجتمعٍ يدوم</span></p>
 </main>
 <footer>
