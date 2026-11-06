@@ -1,27 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url><loc>https://osar-sa.github.io/</loc><lastmod>2026-11-02</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://osar-sa.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osar-sa.github.io/en/"/></url>
-  <url><loc>https://osar-sa.github.io/en/</loc><lastmod>2026-11-02</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://osar-sa.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osar-sa.github.io/en/"/></url>
-  <url><loc>https://osar-sa.github.io/realestate.html</loc><lastmod>2026-11-02</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://osar-sa.github.io/realestate.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osar-sa.github.io/en/realestate.html"/></url>
-  <url><loc>https://osar-sa.github.io/en/realestate.html</loc><lastmod>2026-11-02</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://osar-sa.github.io/realestate.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osar-sa.github.io/en/realestate.html"/></url>
-  <url><loc>https://osar-sa.github.io/social.html</loc><lastmod>2026-11-02</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://osar-sa.github.io/social.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osar-sa.github.io/en/social.html"/></url>
-  <url><loc>https://osar-sa.github.io/en/social.html</loc><lastmod>2026-11-02</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://osar-sa.github.io/social.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osar-sa.github.io/en/social.html"/></url>
-  <url><loc>https://osar-sa.github.io/privacy.html</loc><lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://osar-sa.github.io/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osar-sa.github.io/en/privacy.html"/></url>
-  <url><loc>https://osar-sa.github.io/en/privacy.html</loc><lastmod>2026-11-04</lastmod>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://osar-sa.github.io/privacy.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://osar-sa.github.io/en/privacy.html"/></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://osar-sa.github.io/</loc><lastmod>2026-11-06</lastmod></url>
 </urlset>
