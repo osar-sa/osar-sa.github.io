@@ -75,14 +75,14 @@
         try { const r = await api('verifyCode', { email, code: c.value }); token = r.token; store.set('osar_token', token); await load(); }
         catch (e) { err.textContent = e.message; go.disabled = false; }
       };
-      go.onclick = verify; c.onkeydown = (e) => e.key === 'Enter' && verify();
-      c.oninput = () => c.value.replace(/\D/g, '').length === 6 && verify();
+      go.onclick = verify; c.onkeydown = (e) => { if (e.key === 'Enter') verify(); };
+      c.oninput = () => { if (c.value.replace(/\D/g, '').length === 6) verify(); };
       document.getElementById('back').onclick = () => renderLogin();
       document.getElementById('again').onclick = () => send(email);
     } else {
       const em = document.getElementById('email'); em.value = store.get('osar_email') || ''; em.focus();
       const s = () => { const v = em.value.trim().toLowerCase(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) { err.textContent = 'الإيميل غير صحيح'; return; } send(v); };
-      go.onclick = s; em.onkeydown = (e) => e.key === 'Enter' && s();
+      go.onclick = s; em.onkeydown = (e) => { if (e.key === 'Enter') s(); };
     }
   }
 
