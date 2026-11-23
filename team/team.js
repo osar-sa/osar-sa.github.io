@@ -114,12 +114,29 @@
       '</nav><div class="me"><div class="av">' + initial(me.name) + '</div><div><b>' + esc(me.name) + '</b><small>' + esc(me.roleLabel) + '</small></div><button class="link" id="out" title="تسجيل خروج">خروج</button></div></aside>' +
       '<div><div class="mtop"><img src="mark.png" alt=""><button class="btn ghost sm" id="menu">القائمة ☰</button></div><main>' +
       (D.readOnly ? '<div class="banner"><span>تشوف الحساب كـ <b>' + esc(v.name) + '</b> · قراءة فقط</span><button class="btn sm" id="exitAs">رجوع لحسابي</button></div>' : '') +
-      body + '</main></div></div>';
+      body + '</main></div></div>' + bottomNav() + (menuOpen ? '<div class="scrim" id="scrim"></div>' : '');
     $app.querySelectorAll('[data-nav]').forEach((b) => (b.onclick = () => { view = b.dataset.nav; clientId = null; menuOpen = false; location.hash = view; render(); scrollTo(0, 0); }));
     document.getElementById('out').onclick = logout;
-    const m = document.getElementById('menu'); if (m) m.onclick = () => { menuOpen = !menuOpen; render(); };
+    document.querySelectorAll('#menu,#bmenu').forEach((m) => (m.onclick = () => { menuOpen = !menuOpen; render(); }));
+    const sc = document.getElementById('scrim'); if (sc) sc.onclick = () => { menuOpen = false; render(); };
+    labelTables();
     const ex = document.getElementById('exitAs'); if (ex) ex.onclick = () => { asEmail = null; view = 'team'; load(); };
     bind();
+  }
+
+  function bottomNav() {
+    const items = navItems(); const main = ['home', 'tasks', 'clients', 'content'];
+    const ic = { home: '⌂', tasks: '✓', clients: '◎', content: '▦' };
+    const more = items.filter((n) => main.indexOf(n[0]) < 0);
+    const moreCount = more.reduce((s, n) => s + (Number(n[3]) || 0), 0);
+    return '<nav class="bnav">' + items.filter((n) => main.indexOf(n[0]) >= 0).map((n) => '<button data-nav="' + n[0] + '" class="' + (view === n[0] ? 'on' : '') + '"><i>' + ic[n[0]] + '</i>' + n[1] + (n[3] !== '' ? '<b>' + n[3] + '</b>' : '') + '</button>').join('') +
+      '<button id="bmenu" class="' + (main.indexOf(view) < 0 ? 'on' : '') + '"><i>☰</i>المزيد' + (moreCount ? '<b>' + moreCount + '</b>' : '') + '</button></nav>';
+  }
+  function labelTables() {
+    document.querySelectorAll('.tbl table').forEach((t) => {
+      const heads = [...t.querySelectorAll('tr:first-child th')].map((th) => (th.childNodes[0] && th.childNodes[0].textContent || th.textContent).trim());
+      t.querySelectorAll('tr').forEach((tr) => [...tr.children].forEach((td, i) => { if (td.tagName === 'TD' && heads[i]) td.setAttribute('data-l', heads[i]); }));
+    });
   }
 
   /* ---------- مكوّنات ---------- */
