@@ -1,2 +1,2 @@
-// رابط الخلفية (Google Apps Script Web App). يُحدَّث بعد النشر.
-window.OSAR_API = 'PASTE_WEB_APP_URL_HERE';
+// رابط الخلفية (Google Apps Script Web App · حساب أوسار)
+window.OSAR_API = 'https://script.google.com/macros/s/AKfycbxQFDF7lwf0zzvSUA4l7YhGh1DK34UmIuExAiztZBUMcA_SMNJSldccCFLaiDG0kzkoRg/exec';
